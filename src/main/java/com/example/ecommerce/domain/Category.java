@@ -17,12 +17,12 @@ import org.hibernate.annotations.Cascade;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="idcategory")
+    @Column(name="id")
     private Long id;
 
-    @Column(name="namecategory")
+    @Column(name="name")
     @NotBlank(message="Tên Danh Mục không để trống!!")
-    private String nameCategory;
+    private String name;
 
     @Column(name="dateadd")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
@@ -34,7 +34,7 @@ public class Category {
 
     @Column(name="note")
     private String note;
-    @OneToMany(cascade = CascadeType.ALL,
+   /* @OneToMany(cascade = CascadeType.ALL,
             mappedBy = "category", orphanRemoval = true)
-    private List<Category_Sub> categorySub=new ArrayList<>();
+    private List<Category_Sub> categorySub=new ArrayList<>();*/
 }

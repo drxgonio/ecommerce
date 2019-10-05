@@ -22,16 +22,13 @@ public class Category_Sub {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name="idCategory")
-    @Cascade(value = org.hibernate.annotations.CascadeType.ALL)
+    @JoinColumn(name="idcategory")
     @NotFound(action = NotFoundAction.IGNORE)
     @JsonIgnore
     private Category category;
 
     @Column(name="linkimage")
     private String linkimage;
-
-
 
     public Category_Sub() {
     }

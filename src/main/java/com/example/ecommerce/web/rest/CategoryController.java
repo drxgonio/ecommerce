@@ -2,6 +2,8 @@ package com.example.ecommerce.web.rest;
 
 import com.example.ecommerce.domain.Category;
 import com.example.ecommerce.service.CategoryService;
+import com.example.ecommerce.service.dto.CategoryDTO;
+import org.apache.tomcat.util.http.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,11 +23,10 @@ public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
-
     @GetMapping("/category")
-    public ResponseEntity<List<Category>> getCaategory(){
-        List<Category> a=categoryService.getCategory();
-        return new ResponseEntity<List<Category>>(a,HttpStatus.OK);
+    public ResponseEntity<List<CategoryDTO>> getCaategory(){
+        List<CategoryDTO> list=categoryService.getCategory();
+        return  new ResponseEntity<List<CategoryDTO>>(list,HttpStatus.OK);
     }
     @PostMapping(path="/addcategory")
     public ResponseEntity<?> addCategory(@Valid @RequestBody Category c, BindingResult result){
